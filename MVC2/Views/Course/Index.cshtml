@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MVC2.Models.Course>
+
+<h2>Courses</h2>
+<a asp-action="Add" class="btn btn-success">Add New</a>
+@if (ViewBag.LastCourse != null)
+{
+    <p>Last added course: <b>@ViewBag.LastCourse</b></p>
+    <p>Total added this session: <b>@ViewBag.TotalAdded</b></p>
+}
+@if (ViewBag.LastCourseCookie != null)
+{
+    <p>Last added (Cookie): <b>@ViewBag.LastCourseCookie</b></p>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Degree</th>
+            <th>MinDegree</th>
+            <th>Topic</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>@c.Degree</td>
+                <td>@c.MinDegree</td>
+                <td>@c.Topic</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@c.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@c.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

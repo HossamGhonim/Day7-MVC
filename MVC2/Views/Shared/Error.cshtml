@@ -1,0 +1,19 @@
+﻿@model object
+
+@{
+    ViewData["Title"] = "Error";
+}
+
+<h1 class="text-danger">Error</h1>
+<h2 class="text-danger">@ViewBag.ErrorMessage</h2>
+
+@if (ViewBag.ExceptionDetails != null)
+{
+    <p><strong>Details:</strong> @ViewBag.ExceptionDetails</p>
+}
+@if (ViewBag.ErrorTime != null)
+{
+    <p><strong>Time:</strong> @ViewBag.ErrorTime</p>
+}
+
+<a asp-action="Index" asp-controller="Home" class="btn btn-primary">Back to Home</a>

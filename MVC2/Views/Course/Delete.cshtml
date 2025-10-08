@@ -1,0 +1,28 @@
+﻿@model MVC2.Models.Course
+
+<h2>Delete Course</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text"><strong>Degree:</strong> @Model.Degree</p>
+        <p class="card-text"><strong>MinDegree:</strong> @Model.MinDegree</p>
+        <p class="card-text"><strong>Topic:</strong> @Model.Topic</p>
+
+        @if (Model.Enrollments != null && Model.Enrollments.Any())
+        {
+            <div class="alert alert-warning">
+                 @Model.Enrollments.Count() Error (cascade).
+            </div>
+        }
+
+        <form asp-action="Delete" method="post">
+            @Html.AntiForgeryToken()
+            <input type="hidden" asp-for="Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

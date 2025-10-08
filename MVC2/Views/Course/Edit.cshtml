@@ -1,0 +1,8 @@
+﻿@model MVC2.Models.Course
+
+<h2>Edit Course</h2>
+<form asp-action="Edit" method="post">
+    <partial name="_CourseFormPartial" model="Model" />
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>

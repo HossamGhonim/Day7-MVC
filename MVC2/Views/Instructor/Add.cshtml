@@ -1,0 +1,35 @@
+﻿@model MVC2.Models.Instructor
+
+@{
+    ViewData["Title"] = "Create";
+}
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+@if (TempData["InvalidKeys"] != null)
+{
+    <div class="alert alert-warning">Invalid keys: @TempData["InvalidKeys"]</div>
+}
+@if (TempData["AllStates"] != null)
+{
+    <div class="alert alert-info small font-monospace">All states: @TempData["AllStates"]</div>
+}
+@if (TempData["Debug"] != null)
+{
+    <div class="alert alert-success">@TempData["Debug"]</div>
+}
+@if (TempData["SaveDebug"] != null)
+{
+    <div class="alert alert-success">@TempData["SaveDebug"]</div>
+}
+<h2>Create Instructor</h2>
+
+
+<form asp-action="Add" method="post">
+    @Html.Partial("_InstructorFormPartial", Model)
+</form>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

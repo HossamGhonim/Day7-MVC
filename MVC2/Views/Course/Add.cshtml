@@ -1,0 +1,32 @@
+﻿@model MVC2.Models.Course
+
+<h2>Add Course</h2>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+@if (ViewBag.ModelErrors != null)
+{
+    <div class="alert alert-danger">
+        <ul>
+            @foreach (var e in (List<string>)ViewBag.ModelErrors)
+            {
+                <li>@e</li>
+            }
+        </ul>
+    </div>
+}
+
+<form asp-action="Add" method="post">
+    @Html.AntiForgeryToken()
+
+    <partial name="_CourseFormPartial" model="Model" />
+
+    <div class="form-group mt-3">
+        <button type="submit" class="btn btn-success">Save</button>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

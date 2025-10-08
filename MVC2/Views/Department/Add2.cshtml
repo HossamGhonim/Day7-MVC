@@ -1,0 +1,41 @@
+﻿@model MVC2.Models.Department
+
+<h2>Add Department (Add2)</h2>
+
+@if (ViewBag.FooterMessage != null)
+{
+    <div class="alert alert-success">
+        <strong>@ViewBag.FooterMessage</strong><br />
+        <span>Created At: @ViewBag.CreateTime</span>
+    </div>
+}
+
+<form asp-action="Add2" method="post">
+    <div class="form-group mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Manager" class="form-label"></label>
+        <input asp-for="Manager" class="form-control" />
+        <span asp-validation-for="Manager" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="Location" class="form-label"></label>
+        <select asp-for="Location" class="form-select">
+            <option value="">-- Select Location --</option>
+            <option value="EG">EG</option>
+            <option value="USA">USA</option>
+            <option value="Jap">Jap</option>
+
+
+        </select>
+        <span asp-validation-for="Location" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>

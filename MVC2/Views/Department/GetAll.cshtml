@@ -1,0 +1,33 @@
+﻿@model List<MVC2.Models.DepartmentVm>
+
+<h2>Departments</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Manager</th>
+            <th>Students</th>
+            <th>Instructors</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dept in Model)
+        {
+            <tr>
+                <td>@dept.Id</td>
+                <td>@dept.Name</td>
+                <td>@dept.Manager</td>
+                <td>
+                    count= @dept.StdCount <br />
+                    @string.Join(", ", dept.StdNames)
+                </td>
+                <td>
+                    count=@dept.InsCount <br />
+                    @string.Join(", ", dept.InsNames)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

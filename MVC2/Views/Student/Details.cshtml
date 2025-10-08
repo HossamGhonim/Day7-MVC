@@ -1,0 +1,31 @@
+﻿@model MVC2.Models.Student
+
+<h2>Student Details</h2>
+
+<div>
+    <strong>Name:</strong> @Model.Name <br />
+    <strong>Department:</strong> @Model.Department?.Name
+</div>
+
+<h3>Courses & Grades</h3>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Grade</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var enrollment in Model.Enrollments)
+        {
+            bool isPass = (int)enrollment.Grade >= 50; // شرط النجاح
+                                                       <tr>
+                                                           <td>@enrollment.Course.Name</td>
+                                                           <td style="color:@(isPass ? "green" : "red")">@enrollment.Grade</td>
+                                                       </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

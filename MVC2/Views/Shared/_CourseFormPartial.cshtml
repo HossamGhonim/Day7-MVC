@@ -1,0 +1,24 @@
+﻿@model MVC2.Models.Course
+
+<div class="form-group">
+    <label asp-for="Name"></label>
+    <input asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Degree"></label>
+    <input asp-for="Degree" class="form-control" type="number" />
+    <span asp-validation-for="Degree" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="MinDegree"></label>
+    <input asp-for="MinDegree" class="form-control" type="number" />
+    <span asp-validation-for="MinDegree" class="text-danger"></span>
+</div>
+
+<div class="form-group">
+    <label asp-for="Topic"></label>
+    <input asp-for="Topic" class="form-control" />
+</div>
